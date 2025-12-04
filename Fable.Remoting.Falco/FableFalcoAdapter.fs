@@ -19,8 +19,7 @@ module FalcoUtils =
             do! ctx.Response.Body.WriteAsync(bytes, 0, bytes.Length)
         }
 
-    let text (input: string) =
-        fun (ctx : HttpContext) ->
+    let text (input: string) (ctx: HttpContext) =
             task {
                 let bytes = System.Text.Encoding.UTF8.GetBytes(input)
                 do! ctx.Response.Body.WriteAsync(bytes, 0, bytes.Length)
